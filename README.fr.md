@@ -34,8 +34,8 @@ flowchart LR
 ## Démarrage rapide
 
 ```bash
-git clone https://github.com/NikoRNK/psunmask.git
-cd psunmask
+git clone https://github.com/NikoRNK/PSUNMASK---malicious-powershell-catcher.git
+cd PSUNMASK---malicious-powershell-catcher
 pip install -e .            # zéro dépendance à l'exécution
 pip install -e ".[evtx]"    # optionnel : lire directement les .evtx
 ```
