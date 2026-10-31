@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "psunmask"
+version = "1.0.0"
+description = "Static PowerShell deobfuscation and triage for SOC analysts (Catch it, Decode it, Trace it, Call it)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Nikola Rankovic" }]
+keywords = ["soc", "blue-team", "powershell", "deobfuscation", "sysmon", "mitre-attack", "dfir"]
+dependencies = []
+
+[project.optional-dependencies]
+evtx = ["python-evtx>=0.7"]
+dev = ["pytest>=7", "ruff>=0.4"]
+
+[project.scripts]
+psunmask = "psunmask.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["psunmask*"]
+
+[tool.ruff]
+line-length = 140
+
+[tool.ruff.lint]
+select = ["E", "F"]
+
+[project.urls]
+Homepage = "https://github.com/NikoRNK/psunmask"
+Issues = "https://github.com/NikoRNK/psunmask/issues"

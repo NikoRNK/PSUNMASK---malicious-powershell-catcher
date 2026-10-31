@@ -1,0 +1,20 @@
+// Microsoft Defender XDR / Sentinel (DeviceProcessEvents)
+
+// 1. Encoded PowerShell
+DeviceProcessEvents
+| where FileName in~ ("powershell.exe", "pwsh.exe")
+| where ProcessCommandLine matches regex @"(?i)\s-(e|ec|en|enc|enco\w*|encodedcommand)\s+[A-Za-z0-9+/=]{16,}"
+| where InitiatingProcessFileName !in~ ("ccmexec.exe", "intunemanagementextension.exe")
+| project Timestamp, DeviceName, AccountName, InitiatingProcessFileName, ProcessCommandLine
+
+// 2. Office spawning PowerShell
+DeviceProcessEvents
+| where InitiatingProcessFileName in~ ("winword.exe","excel.exe","powerpnt.exe","outlook.exe","wscript.exe","cscript.exe","mshta.exe")
+| where FileName in~ ("powershell.exe","pwsh.exe")
+| project Timestamp, DeviceName, AccountName, InitiatingProcessCommandLine, ProcessCommandLine
+
+// 3. Download cradle seen by AMSI / script-content telemetry
+DeviceEvents
+| where ActionType == "PowerShellCommand"
+| where AdditionalFields has_any ("DownloadString", "DownloadFile", "Net.WebClient")
+| where AdditionalFields has_any ("iex", "Invoke-Expression")

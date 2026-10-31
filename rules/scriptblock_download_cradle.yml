@@ -1,0 +1,32 @@
+title: PowerShell Script Block Contains Download Cradle
+id: b4d2e9a1-7c36-4e0f-a1b8-5e6f7a8b9c33
+status: experimental
+description: Script Block Logging (4104) text containing a download-and-execute pattern. Works on the *decoded* script, so it catches payloads hidden behind -enc or compression.
+references:
+    - https://attack.mitre.org/techniques/T1105/
+author: Nikola Rankovic
+date: 2026/10/31
+tags:
+    - attack.execution
+    - attack.t1059.001
+    - attack.command_and_control
+    - attack.t1105
+logsource:
+    category: ps_script
+    product: windows
+detection:
+    selection_exec:
+        ScriptBlockText|contains:
+            - 'iex'
+            - 'Invoke-Expression'
+    selection_dl:
+        ScriptBlockText|contains:
+            - 'DownloadString'
+            - 'DownloadFile'
+            - 'Net.WebClient'
+            - 'Invoke-WebRequest'
+            - 'Start-BitsTransfer'
+    condition: selection_exec and selection_dl
+falsepositives:
+    - Package managers and bootstrap scripts (chocolatey, scoop, internal installers)
+level: high

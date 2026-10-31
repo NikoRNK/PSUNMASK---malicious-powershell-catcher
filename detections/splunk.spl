@@ -1,0 +1,16 @@
+`# 1. Encoded PowerShell from Sysmon, excluding known management parents`
+index=sysmon EventCode=1 (Image="*\\powershell.exe" OR Image="*\\pwsh.exe")
+  (CommandLine="* -enc *" OR CommandLine="* -e *" OR CommandLine="* -ec *" OR CommandLine="* -EncodedCommand *")
+  NOT ParentImage IN ("*\\CcmExec.exe", "*\\IntuneManagementExtension.exe")
+| table _time host User ParentImage CommandLine
+
+`# 2. Office / script host -> PowerShell`
+index=sysmon EventCode=1 Image="*\\powershell.exe"
+  ParentImage IN ("*\\winword.exe","*\\excel.exe","*\\powerpnt.exe","*\\outlook.exe","*\\wscript.exe","*\\cscript.exe","*\\mshta.exe")
+| stats count min(_time) as first_seen by host User ParentImage CommandLine
+
+`# 3. Decoded download cradles in Script Block Logging (4104), reassemble multi-part blocks first`
+index=wineventlog source="WinEventLog:Microsoft-Windows-PowerShell/Operational" EventCode=4104
+| stats list(ScriptBlockText) as parts by ScriptBlockId host
+| eval script=mvjoin(parts, "")
+| where match(script, "(?i)(iex|invoke-expression)") AND match(script, "(?i)(downloadstring|downloadfile|net\.webclient|invoke-webrequest)")

